@@ -1,0 +1,22 @@
+﻿@model List<bonachat.Models.TypeBon>
+<h2>Types :</h2>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Libelle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var TypeBon in Model)
+        {
+            <tr>
+                <td>@TypeBon.Code</td>
+                <td>@TypeBon.Libelle</td>
+            </tr>
+        }
+    </tbody>
+</table>

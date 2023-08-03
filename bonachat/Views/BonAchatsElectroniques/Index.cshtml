@@ -1,0 +1,42 @@
+﻿@model List<bonachat.Models.BonAchatElectronique> 
+<h2>Bons d'achat electroniques :</h2>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID de l'utilisateur</th>
+            <th>Solde avant</th>
+            <th>Solde apres</th>
+            <th>Date de generation</th>
+            <th>Etat</th>
+            <th>Type</th>
+            <th>Valeur initiale</th>
+            <th>Valeur restante</th>
+            <th>Email de beneficiaire</th>
+            <th>Telephone de beneficiaire</th>
+            <th>Source</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bonAchat in Model)
+        {
+            <tr style="background-color: @bonAchat.Couleur;">
+                <td>@bonAchat.Id</td>
+                <td>@bonAchat.IdUtilisateur</td>
+                <td>@bonAchat.SoldeCarteUtilisateurAvant</td>
+                <td>@bonAchat.SoldeCarteUtilisateurApres</td>
+                <td>@bonAchat.DateGeneration</td>
+                <td>@bonAchat.CodeEtat</td>
+                <td>@bonAchat.CodeType</td>
+                <td>@bonAchat.ValeurInitiale</td>
+                <td>@bonAchat.ValeurRestante</td>
+                <td>@bonAchat.EmailBeneficiaire</td>
+                <td>@bonAchat.TelephoneBeneficiaire</td>
+                <td>@bonAchat.CodeSource</td>
+            </tr>
+        }
+    </tbody>
+</table>

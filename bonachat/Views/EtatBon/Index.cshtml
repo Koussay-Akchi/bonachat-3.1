@@ -1,0 +1,44 @@
+﻿@model List<bonachat.Models.EtatBon>
+<h2>Etats</h2>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Libelle</th>
+            <th>Description</th>
+            <th>Libelle par defaut</th>
+            <th>Couleur</th>
+            <th>Nouvelle Libelle</th>
+            <th></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var etatBon in Model)
+        {
+            <tr style="background-color: @etatBon.Couleur;">
+                <td>@etatBon.Code</td>
+                <td>@etatBon.Libelle</td>
+                <td>@etatBon.Description</td>
+                <td>@etatBon.LibelleParDefaut</td>
+                <td>@etatBon.Couleur</td>
+                <td>
+                    <form method="post" asp-action="UpdateLibelle">
+                        <input type="text" name="NouvelleLibelle" placeholder="Nouvelle Libelle" />
+                        <input type="hidden" name="Code" value="@etatBon.Code" />
+                        <input type="submit" value="Changer" />
+                    </form>
+                    <form method="post" asp-action="LibelleParDefaut">
+                        <input type="hidden" name="Code" value="@etatBon.Code" />
+                        <input type="submit" value="Defaut" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</body>
